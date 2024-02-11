@@ -9,10 +9,10 @@ export const font = Inconsolata({
 export default function Layout({ children }) {
   return (
     <div
-      className={`relative flex justify-center bg-[#fbe4d8] ${font.className}`}
+      className={`relative flex justify-center bg-primary-500 ${font.className}`}
     >
       <Navbar />
-      <main className="overflow-y-auto h-screen w-full bg-gradient-to-r from-[#DFD3C3] to-[#F8EDE3] background-animate">
+      <main className="overflow-y-auto h-screen w-full mx-auto">
         {children}
       </main>
     </div>
