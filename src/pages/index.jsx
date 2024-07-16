@@ -2,9 +2,6 @@ import Image from "next/image";
 import { Inconsolata, Mr_Dafoe } from "next/font/google";
 import { useEffect, useState } from "react";
 import { profile } from "@/content/profile";
-import Github from "@/components/icons/socials/Github";
-import Linkedin from "@/components/icons/socials/linkedin";
-import Gmail from "@/components/icons/socials/Gmail";
 
 const marck = Mr_Dafoe({ weight: "400", subsets: ["latin"] });
 const kleeOne = Inconsolata({
@@ -136,7 +133,7 @@ export default function Home() {
       </Container>
 
       {/* About me */}
-      <Container className="flex flex-col gap-4 md:gap-16 items-center justify-center">
+      <Container className="flex flex-col gap-10 md:gap-16 items-center justify-center my-10 lg:my-0">
         <Subtitle title="About me" />
         <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 md:p-0 px-4">
           <Image
@@ -148,14 +145,14 @@ export default function Home() {
             height={0}
             sizes="100vh"
           />
-          <p className="text-center w-full md:w-1/2 text-sm md:text-lg whitespace-pre-line">
+          <p className="text-center px-6 md:px-0 w-full md:w-1/2 text-sm md:text-lg whitespace-pre-line">
             {profile.bio}
           </p>
         </div>
       </Container>
 
       {/* Skillsets */}
-      <Container className="bg-[#F1F8E8] dark:bg-[#183D3D]/40 flex flex-col gap-20 items-center justify-center">
+      <Container className="bg-[#F1F8E8] dark:bg-[#183D3D]/40 flex flex-col gap-10 lg:gap-20 items-center justify-center">
         <Subtitle title="Skillsets" />
         <div
           x-data="{}"
@@ -183,9 +180,9 @@ export default function Home() {
       </Container>
 
       {/* Experiences */}
-      <Container className="flex flex-col gap-16 items-center justify-center">
+      <Container className="flex flex-col gap-10 md:gap-16 items-center justify-center lg:my-16">
         <Subtitle title="Experiences" />
-        <div className="w-4/5 flex flex-col md:flex-row gap-28">
+        <div className="w-4/5 flex flex-col items-center lg:items-start lg:flex-row lg:justify-between gap-10">
           <div className="flex flex-col gap-4">
             {profile.experiences.map(({ period, role, company }, k) => (
               <div
@@ -196,27 +193,27 @@ export default function Home() {
                   setSelectedExp(k);
                 }}
               >
-                <div className="flex flex-col items-center gap-4">
+                <div className="flex flex-col items-center gap-2 md:gap-4">
                   <Image
-                    className="rounded-full bg-[#183D3D]/30 h-8 w-8 group-hover:animate-wiggle-more animate-infinite animate-duration-700 animate-ease-linear animate-normal"
+                    className={`rounded-full bg-[#183D3D]/30 h-8 w-8 group-hover:animate-wiggle-more animate-infinite animate-duration-700 animate-ease-linear animate-normal ${
+                      k === selectedExp &&
+                      "outline-4 dark:outline-2 lg:outline dark:outline-white outline-[#f6cf88]"
+                    }`}
                     priority
                     src="/img/emojis/bolt.png"
                     alt="bolt"
                     width={0}
                     height={0}
                     sizes="100vh"
-                    style={{
-                      boxShadow:
-                        k === selectedExp &&
-                        "5px 5px 10px #2a323e, -5px -5px 10px #7288a8",
-                    }}
                   />
                   {k !== profile.experiences?.length - 1 && (
-                    <div className="w-px h-[62px] dark:bg-[#E5DDC5] bg-neutral-300"></div>
+                    <div className="w-px h-10 md:h-[62px] dark:bg-[#E5DDC5] bg-neutral-300"></div>
                   )}
                 </div>
-                <div>
-                  <span className="font-semibold text-xl">{role}</span>
+                <div className="text-sm md:text-lg">
+                  <span className="font-semibold text-md md:text-xl">
+                    {role}
+                  </span>
                   <p>{company}</p>
                   <p>{period}</p>
                 </div>
@@ -225,7 +222,7 @@ export default function Home() {
           </div>
 
           <div
-            className={`hidden lg:flex w-3/5 items-center bg-neutral-100 dark:bg-[#183D3D] rounded-xl drop-shadow-md p-8 animate-once animate-ease-linear animate-normal ${
+            className={`hidden lg:flex lg:w-3/5 md:w-1/2 items-center bg-neutral-100 dark:bg-[#183D3D] rounded-xl drop-shadow-md p-8 animate-once animate-ease-linear animate-normal ${
               openExp
                 ? "animate-fade-right animate-duration-700"
                 : "animate-fade-left animate-duration-50"
@@ -254,60 +251,39 @@ export default function Home() {
         </div>
       </Container>
 
-      <Container className="bg-[#F1F8E8] dark:bg-[#183D3D]/40 flex flex-col gap-10 items-center justify-center">
+      {/* Educations */}
+      <Container className="bg-[#F1F8E8] dark:bg-[#183D3D]/40 flex flex-col gap-10 md:gap-16 items-center justify-center py-10 lg:py-0">
         <Subtitle title="Educations" />
         <div className="w-4/5 flex flex-col md:flex-row gap-6 justify-center">
           {profile.educations.map(({ period, program, school }, j) => (
             <div
               key={j}
-              className="text-center w-full md:w-1/2 flex flex-col justify-center items-center gap-2 p-8 rounded-xl bg-neutral-50 dark:bg-[#183D3D] drop-shadow-lg"
+              className="text-center text-sm md:text-lg w-full md:w-1/2 flex flex-col justify-center items-center gap-2 p-8 rounded-xl bg-neutral-50 dark:bg-[#183D3D] drop-shadow-lg"
             >
-              <span className="text-lg font-bold">{program}</span>
+              <span className="font-bold">{program}</span>
               <p>{school}</p>
               <p>{period}</p>
             </div>
           ))}
         </div>
       </Container>
+
+      {/* Contact */}
       <Container className="flex flex-col gap-16 items-center justify-center md:p-0 px-4">
         <Subtitle title="Drop me a line whenever!" className="text-center" />
         <div className="flex flex-col gap-4 items-start">
-          <div className="flex flex-row items-center gap-4">
-            <div className="w-8 h-8">
-              <Gmail />
+          {profile.socials.map(({ link, icon, label }, s) => (
+            <div key={s} className="flex flex-row items-center gap-4">
+              <div className="w-8 h-8">{icon}</div>
+              <a
+                className="text-md md:text-lg hover:animate-wiggle animate-infinite animate-duration-500 animate-ease-linear animate-normal"
+                target="_blank"
+                href={link}
+              >
+                {label}
+              </a>
             </div>
-            <a
-              className="text-md md:text-lg"
-              target="_blank"
-              href="mailto:hidayahrah97@gmail.com"
-            >
-              {profile.email}
-            </a>
-          </div>
-          <div className="flex flex-row items-center gap-4">
-            <div className="w-8 h-8 dark:fill-white fill-black">
-              <Github />
-            </div>
-            <a
-              className="text-md md:text-lg"
-              target="_blank"
-              href={profile.github}
-            >
-              @hidayahrah
-            </a>
-          </div>
-          <div className="flex flex-row items-center gap-4">
-            <div className="w-8 h-8">
-              <Linkedin />
-            </div>
-            <a
-              className="text-md md:text-lg"
-              target="_blank"
-              href={profile.linkedin}
-            >
-              @hidayahrah
-            </a>
-          </div>
+          ))}
         </div>
       </Container>
     </main>
@@ -316,7 +292,7 @@ export default function Home() {
 
 const Subtitle = ({ title, className = "" }) => (
   <p
-    className={`text-5xl whitespace-pre-line font-bold ${className} ${marck.className}`}
+    className={`text-3xl md:text-5xl whitespace-pre-line font-bold ${className} ${marck.className}`}
   >
     {title}
   </p>

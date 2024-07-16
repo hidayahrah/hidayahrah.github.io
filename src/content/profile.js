@@ -1,8 +1,9 @@
+import Github from "@/components/icons/socials/Github";
+import Gmail from "@/components/icons/socials/Gmail";
+import Linkedin from "@/components/icons/socials/Linkedin";
+
 export const profile = {
   name: "Nur Hidayah",
-  email: "hidayahrah97@gmail.com",
-  linkedin: "https://www.linkedin.com/in/hidayahrah/",
-  github: "https://github.com/hidayahrah",
   role: "Full Stack Engineer",
   pitch:
     "Elevating digital experiences with expert full-stack craftsmanship in JavaScript & TypeScript to drive business innovation.",
@@ -124,6 +125,23 @@ export const profile = {
     {
       src: "/img/logos/mongodb.png",
       alt: "MongoDB",
+    },
+  ],
+  socials: [
+    {
+      label: "hidayahrah97@gmail.com",
+      link: "mailto:hidayahrah97@gmail.com",
+      icon: <Gmail />,
+    },
+    {
+      label: "@hidayahrah",
+      link: "https://github.com/hidayahrah",
+      icon: <Github />,
+    },
+    {
+      label: "@hidayahrah",
+      link: "https://www.linkedin.com/in/hidayahrah/",
+      icon: <Linkedin />,
     },
   ],
 };
