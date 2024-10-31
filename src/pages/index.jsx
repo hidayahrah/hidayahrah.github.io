@@ -25,7 +25,6 @@ export default function Home() {
             src={src}
             alt={alt}
             className="w-full h-auto rounded-lg drop-shadow-xl"
-            priority
             width={0}
             height={0}
             sizes="100vh"
@@ -68,7 +67,6 @@ export default function Home() {
           {!dark ? (
             <Image
               className="w-auto h-full"
-              priority
               src="/img/emojis/sunglasses.png"
               alt="light mode"
               width={0}
@@ -78,7 +76,6 @@ export default function Home() {
           ) : (
             <Image
               className="w-auto h-full"
-              priority
               src="/img/emojis/heart-eyes.png"
               alt="dark mode"
               width={0}
@@ -137,8 +134,7 @@ export default function Home() {
         <Subtitle title="About me" />
         <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 md:p-0 px-4">
           <Image
-            className="w-auto h-full drop-shadow-xl"
-            priority
+            className="md:w-auto md:h-full size-52 drop-shadow-xl"
             src="/img/hidayahrah.png"
             alt="light mode"
             width={0}
@@ -199,7 +195,6 @@ export default function Home() {
                       k === selectedExp &&
                       "outline-4 dark:outline-2 lg:outline dark:outline-white outline-[#f6cf88]"
                     }`}
-                    priority
                     src="/img/emojis/bolt.png"
                     alt="bolt"
                     width={0}
